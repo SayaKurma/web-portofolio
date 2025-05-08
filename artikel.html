@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Artikel - Portofolio Pribadi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dark {
+            --tw-bg-opacity: 1;
+            background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+            color: white;
+        }
+        .dark .nav-link {
+            color: white;
+        }
+        .dark .section-title {
+            border-color: rgb(51 65 85);
+        }
+        .dark .social-icon {
+            color: white;
+        }
+        .dark-mode-toggle {
+            transition: all 0.3s ease;
+        }
+        .active {
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        .dark .active {
+            color: #60a5fa;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 99;
+        }
+        .dark .back-to-top {
+            background-color: #60a5fa;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        .article-content {
+            line-height: 1.8;
+        }
+        .article-content p {
+            margin-bottom: 1.5rem;
+        }
+        .article-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1.5rem 0 1rem;
+            color: #3b82f6;
+        }
+        .dark .article-content h2 {
+            color: #60a5fa;
+        }
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        .article-content ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            list-style-type: disc;
+        }
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300 min-h-screen">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm dark:bg-slate-800/80 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-blue-500 dark:text-blue-400">
+                    <a href="index.html">Portofolio</a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Beranda</a>
+                    <a href="index.html#profile" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
+                    <a href="tulisan.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Tulisan</a>
+                    <a href="index.html#galeri" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
+                    <a href="proyek-anime.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Proyek Anime</a>
+                    <a href="index.html#sosmed" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Sosial Media</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="dark-mode-toggle p-2 rounded-full bg-gray-200 dark:bg-slate-700">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-300"></i>
+                    </button>
+                    <button id="mobileMenuButton" class="md:hidden p-2 rounded-full bg-gray-200 dark:bg-slate-700">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Beranda</a>
+                    <a href="index.html#profile" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
+                    <a href="tulisan.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Tulisan</a>
+                    <a href="index.html#galeri" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
+                    <a href="proyek-anime.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Proyek Anime</a>
+                    <a href="index.html#sosmed" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Sosial Media</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Article Container -->
+    <main class="container mx-auto px-6 py-12 max-w-4xl fade-in">
+        <!-- Article Header -->
+        <article id="articleContent">
+            <div class="mb-8">
+                <div id="articleMeta" class="flex items-center space-x-2 text-sm text-gray-500 mb-4">
+                    <span id="articleCategory" class="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full dark:bg-gray-700 dark:text-gray-300">Kategori</span>
+                    <span id="articleDate" class="text-sm text-gray-500 dark:text-gray-400">Tanggal</span>
+                </div>
+                <h1 id="articleTitle" class="text-3xl font-bold mb-6 dark:text-white">Judul Artikel</h1>
+            </div>
+            <!-- Article Content -->
+            <div id="articleBody" class="article-content dark:text-gray-300 mb-12">
+                <p>Loading article...</p>
+            </div>
+            <!-- Article Footer -->
+            <div class="border-t border-gray-200 dark:border-slate-700 pt-6">
+                <a href="tulisan.html" class="text-blue-500 hover:underline dark:text-blue-400">← Kembali ke semua tulisan</a>
+            </div>
+        </article>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold text-blue-500 dark:text-blue-400">Portofolio</span>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">© 2023 John Doe. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="social-icon text-gray-500 hover:text-blue-500 dark:hover:text-blue-400">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="social-icon text-gray-500 hover:text-blue-400 dark:hover:text-blue-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="social-icon text-gray-500 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="social-icon text-gray-500 hover:text-pink-500 dark:hover:text-pink-400">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedMode = localStorage.getItem('darkMode');
+        if (savedMode === 'dark' || (!savedMode && userPrefersDark)) {
+            html.classList.add('dark');
+        }
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Dynamic Article Loading
+        async function loadArticle() {
+            try {
+                // Get article ID from URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const articleId = urlParams.get('id');
+                
+                if (!articleId) {
+                    document.getElementById('articleBody').innerHTML = '<p>Artikel tidak ditemukan.</p>';
+                    return;
+                }
+
+                // Fetch articles JSON
+                const response = await fetch('articles.json');
+                const data = await response.json();
+                const article = data.articles.find(a => a.id === articleId);
+
+                if (!article) {
+                    document.getElementById('articleBody').innerHTML = '<p>Artikel tidak ditemukan.</p>';
+                    return;
+                }
+
+                // Update page title
+                document.getElementById('pageTitle').textContent = `${article.title} - Portofolio Pribadi`;
+
+                // Update article content
+                document.getElementById('articleTitle').textContent = article.title;
+                document.getElementById('articleCategory').textContent = article.category.charAt(0).toUpperCase() + article.category.slice(1);
+                document.getElementById('articleCategory').className = `text-sm font-medium px-3 py-1 rounded-full ${
+                    article.category === 'teknologi' ? 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300' :
+                    article.category === 'desain' ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' :
+                    'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300'
+                }`;
+                document.getElementById('articleDate').textContent = article.date;
+                document.getElementById('articleBody').innerHTML = article.content;
+            } catch (error) {
+                console.error('Error loading article:', error);
+                document.getElementById('articleBody').innerHTML = '<p>Terjadi kesalahan saat memuat artikel.</p>';
+            }
+        }
+
+        // Load article when page loads
+        window.addEventListener('DOMContentLoaded', loadArticle);
+    </script>
+</body>
+</html>

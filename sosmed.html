@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="id" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sosial Media - Portofolio Saya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dark {
+            --tw-bg-opacity: 1;
+            background-color: rgb(15 23 42 / var(--tw-bg-opacity));
+            color: white;
+        }
+        .dark .nav-link {
+            color: white;
+        }
+        .dark .card {
+            background-color: rgb(30 41 59);
+            border-color: rgb(51 65 85);
+        }
+        .dark .section-title {
+            border-color: rgb(51 65 85);
+        }
+        .dark-mode-toggle {
+            transition: all 0.3s ease;
+        }
+        .active {
+            font-weight: bold;
+            color: #3b82f6;
+        }
+        .dark .active {
+            color: #60a5fa;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.05);
+        }
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        .social-icon:hover {
+            transform: scale(1.2) translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300 min-h-screen dark:bg-slate-900 dark:text-white">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm dark:bg-slate-800/80 shadow-sm">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-blue-500 dark:text-blue-400">
+                    <a href="index.html">Portofolio</a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="index.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Beranda</a>
+                    <a href="profile.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
+                    <a href="tulisan.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Tulisan</a>
+                    <a href="galeri.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
+                    <a href="proyek-anime.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Proyek Anime</a>
+                    <a href="sosmed.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Sosial Media</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button id="darkModeToggle" class="dark-mode-toggle p-2 rounded-full bg-gray-200 dark:bg-slate-700">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-300"></i>
+                    </button>
+                    <button id="mobileMenuButton" class="md:hidden p-2 rounded-full bg-gray-200 dark:bg-slate-700">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden mt-4 pb-2">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Beranda</a>
+                    <a href="profile.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
+                    <a href="tulisan.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Tulisan</a>
+                    <a href="galeri.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
+                    <a href="proyek-anime.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Proyek Anime</a>
+                    <a href="sosmed.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Sosial Media</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        <!-- Social Media Section -->
+        <section id="sosmed" class="py-12 fade-in">
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold mb-4 dark:text-white flex items-center">
+                    <span class="section-title border-b-4 border-blue-500 pb-2 pr-4">Hubungi Saya</span>
+                </h2>
+                <p class="dark:text-gray-400">Ikuti saya di media sosial untuk pembaruan dan konten lebih banyak.</p>
+            </div>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <a href="#" class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700 flex flex-col items-center hover:bg-gray-50 dark:hover:bg-slate-700 transition card card-hover">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
+                        <i class="fab fa-github text-3xl text-blue-500 dark:text-blue-400"></i>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">GitHub</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">@johndoe</p>
+                </a>
+                <a href="#" class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700 flex flex-col items-center hover:bg-gray-50 dark:hover:bg-slate-700 transition card card-hover">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
+                        <i class="fab fa-twitter text-3xl text-blue-400 dark:text-blue-300"></i>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">Twitter</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">@johndoe</p>
+                </a>
+                <a href="#" class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700 flex flex-col items-center hover:bg-gray-50 dark:hover:bg-slate-700 transition card card-hover">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
+                        <i class="fab fa-linkedin-in text-3xl text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">LinkedIn</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">John Doe</p>
+                </a>
+                <a href="#" class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700 flex flex-col items-center hover:bg-gray-50 dark:hover:bg-slate-700 transition card card-hover">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
+                        <i class="fab fa-instagram text-3xl text-pink-500 dark:text-pink-400"></i>
+                    </div>
+                    <h3 class="font-bold dark:text-white mb-1">Instagram</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">@johndoe</p>
+                </a>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-800 border-t border-gray-200 dark:border-slate-700">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-xl font-bold text-blue-500 dark:text-blue-400">Portofolio</span>
+                    <p class="text-gray-600 dark:text-gray-400 mt-2">© 2023 John Doe. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="social-icon text-gray-500 hover:text-blue-500 dark:hover:text-blue-400">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="social-icon text-gray-500 hover:text-blue-400 dark:hover:text-blue-300">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                    <a href="#" class="social-icon text-gray-500 hover:text-blue-600 dark:hover:text-blue-400">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="social-icon text-gray-500 hover:text-pink-500 dark:hover:text-pink-400">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedMode = localStorage.getItem('darkMode');
+        if (savedMode === 'dark' || (!savedMode && userPrefersDark)) {
+            html.classList.add('dark');
+        }
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobileMenuButton');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const fadeInObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, { threshold: 0.1 });
+        fadeElements.forEach(element => {
+            fadeInObserver.observe(element);
+        });
+    </script>
+</body>
+</html>

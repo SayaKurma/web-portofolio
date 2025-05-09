@@ -72,12 +72,12 @@
                     <a href="index.html">Portofolio</a>
                 </div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="index.html#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Beranda</a>
-                    <a href="index.html#profile" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
+                    <a href="index.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Beranda</a>
+                    <a href="profile.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
                     <a href="tulisan.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Tulisan</a>
-                    <a href="index.html#galeri" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
+                    <a href="galeri.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
                     <a href="proyek-anime.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Proyek Anime</a>
-                    <a href="index.html#sosmed" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Sosial Media</a>
+                    <a href="sosmed.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Sosial Media</a>
                 </nav>
                 <div class="flex items-center space-x-4">
                     <button id="darkModeToggle" class="dark-mode-toggle p-2 rounded-full bg-gray-200 dark:bg-slate-700">
@@ -92,12 +92,12 @@
             <!-- Mobile Menu -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 pb-2">
                 <div class="flex flex-col space-y-3">
-                    <a href="index.html#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Beranda</a>
-                    <a href="index.html#profile" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
+                    <a href="index.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Beranda</a>
+                    <a href="profile.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
                     <a href="tulisan.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Tulisan</a>
-                    <a href="index.html#galeri" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
+                    <a href="galeri.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
                     <a href="proyek-anime.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Proyek Anime</a>
-                    <a href="index.html#sosmed" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Sosial Media</a>
+                    <a href="sosmed.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Sosial Media</a>
                 </div>
             </div>
         </div>
@@ -119,11 +119,11 @@
                         Saya menciptakan situs web yang indah dan fungsional serta berbagi kegemaran saya terhadap anime melalui berbagai proyek. Dengan pengalaman lebih dari 5 tahun, saya membangun aplikasi web yang responsif dan performan tinggi.
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#sosmed" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 glow">
+                        <a href="sosmed.html" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 glow">
                             Hubungi Saya
                         </a>
-                        <a href="#profile" class="border-2 border-blue-500 text-blue-500 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
-                            Tentang Saya
+                        <a href="profile.html" class="border-2 border-blue-500 text-blue-500 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                            Pelajari Lebih Lanjut
                         </a>
                     </div>
                     <div class="flex gap-6 pt-4">
@@ -190,7 +190,6 @@
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
         const html = document.documentElement;
-        // Check for saved user preference or use system preference
         const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const savedMode = localStorage.getItem('darkMode');
         if (savedMode === 'dark' || (!savedMode && userPrefersDark)) {
@@ -205,55 +204,6 @@
         const mobileMenu = document.getElementById('mobileMenu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
-        });
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                    // Close mobile menu if open
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-        // Highlight active navigation link
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-link');
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= sectionTop - 150) {
-                    current = section.getAttribute('id');
-                }
-            });
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}` ||
-                    (current === 'tulisan' && link.getAttribute('href') === 'tulisan.html') ||
-                    (current === 'anime' && link.getAttribute('href') === 'proyek-anime.html')) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        // Animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const fadeInObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
-            });
-        }, { threshold: 0.1 });
-        fadeElements.forEach(element => {
-            fadeInObserver.observe(element);
         });
         // Typing animation
         const typingText = document.getElementById('typing-text');
@@ -283,7 +233,6 @@
             const speed = isDeleting ? 100 : isEnd ? 100 : 150;
             setTimeout(type, speed);
         }
-        // Start typing animation
         setTimeout(type, 1000);
         // Add glow effect on hover to profile image
         const profileImg = document.querySelector('img.floating');

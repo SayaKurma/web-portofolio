@@ -22,9 +22,6 @@
         .dark .section-title {
             border-color: rgb(51 65 85);
         }
-        .dark .social-icon {
-            color: white;
-        }
         .dark-mode-toggle {
             transition: all 0.3s ease;
         }
@@ -49,6 +46,53 @@
         .dark .card-hover:hover {
             box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.05);
         }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 9999px;
+        }
+        .badge-primary {
+            background-color: #dbeafe;
+            color: #1e40af;
+        }
+        .dark .badge-primary {
+            background-color: #1e40af;
+            color: #bfdbfe;
+        }
+        .badge-success {
+            background-color: #d1fae5;
+            color: #065f46;
+        }
+        .dark .badge-success {
+            background-color: #065f46;
+            color: #a7f3d0;
+        }
+        .badge-secondary {
+            background-color: #e5e7eb;
+            color: #374151;
+        }
+        .dark .badge-secondary {
+            background-color: #374151;
+            color: #d1d5db;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.5rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -72,76 +116,39 @@
         .back-to-top.visible {
             opacity: 1;
         }
-        .anime-card {
+        .filter-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            background-color: #f3f4f6;
+            color: #374151;
+            cursor: pointer;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
-        .anime-card:hover .anime-overlay {
-            opacity: 1;
+        .filter-btn:hover {
+            background-color: #e5e7eb;
         }
-        .anime-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            color: white;
-            padding: 1rem;
-            text-align: center;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 0.25rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        .badge-primary {
+        .filter-btn.active {
             background-color: #3b82f6;
             color: white;
+            border-color: #3b82f6;
         }
-        .dark .badge-primary {
-            background-color: #1e40af;
+        .dark .filter-btn {
+            border-color: #4b5563;
+            background-color: #374151;
+            color: #d1d5db;
         }
-        .badge-secondary {
-            background-color: #6b7280;
-            color: white;
-        }
-        .dark .badge-secondary {
+        .dark .filter-btn:hover {
             background-color: #4b5563;
         }
-        .badge-success {
-            background-color: #10b981;
+        .dark .filter-btn.active {
+            background-color: #60a5fa;
+            border-color: #60a5fa;
             color: white;
-        }
-        .dark .badge-success {
-            background-color: #065f46;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 transition-colors duration-300 min-h-screen">
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300 min-h-screen dark:bg-slate-900 dark:text-white">
     <!-- Header/Navigation -->
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm dark:bg-slate-800/80 shadow-sm">
         <div class="container mx-auto px-6 py-4">
@@ -150,12 +157,12 @@
                     <a href="index.html">Portofolio</a>
                 </div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="index.html#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Beranda</a>
-                    <a href="index.html#profile" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
+                    <a href="index.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Beranda</a>
+                    <a href="profile.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
                     <a href="tulisan.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Tulisan</a>
-                    <a href="index.html#galeri" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
+                    <a href="galeri.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
                     <a href="proyek-anime.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Proyek Anime</a>
-                    <a href="index.html#sosmed" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Sosial Media</a>
+                    <a href="sosmed.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Sosial Media</a>
                 </nav>
                 <div class="flex items-center space-x-4">
                     <button id="darkModeToggle" class="dark-mode-toggle p-2 rounded-full bg-gray-200 dark:bg-slate-700">
@@ -170,12 +177,12 @@
             <!-- Mobile Menu -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 pb-2">
                 <div class="flex flex-col space-y-3">
-                    <a href="index.html#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Beranda</a>
-                    <a href="index.html#profile" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
+                    <a href="index.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Beranda</a>
+                    <a href="profile.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
                     <a href="tulisan.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Tulisan</a>
-                    <a href="index.html#galeri" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
+                    <a href="galeri.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
                     <a href="proyek-anime.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Proyek Anime</a>
-                    <a href="index.html#sosmed" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Sosial Media</a>
+                    <a href="sosmed.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Sosial Media</a>
                 </div>
             </div>
         </div>
@@ -183,267 +190,57 @@
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
         <!-- Anime Projects Section -->
-        <section class="py-12 fade-in">
+        <section id="proyek-anime" class="py-8 fade-in">
             <div class="mb-12">
                 <h2 class="text-3xl font-bold mb-4 dark:text-white flex items-center">
-                    <span class="section-title border-b-4 border-blue-500 pb-2 pr-4">Proyek Hardsub Anime</span>
+                    <span class="section-title border-b-4 border-blue-500 pb-2 pr-4">Proyek Anime Saya</span>
                 </h2>
-                <p class="dark:text-gray-400">Koleksi video anime yang pernah saya kerjakan sebagai hardsubber (penerjemah & typesetter).</p>
+                <p class="dark:text-gray-400">Koleksi proyek penggemar anime saya, termasuk terjemahan, typesetting, dan pengeditan video.</p>
             </div>
-            <!-- Filter Controls -->
-            <div class="mb-8 bg-white dark:bg-slate-800 rounded-lg shadow-md p-4 border border-gray-200 dark:border-slate-700">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                    <div class="flex-1">
-                        <label for="search" class="block text-sm font-medium mb-1 dark:text-gray-300">Cari Judul</label>
-                        <input type="text" id="search" placeholder="Cari judul anime..." class="w-full px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-slate-700 dark:text-white">
-                    </div>
-                    <div>
-                        <label for="status" class="block text-sm font-medium mb-1 dark:text-gray-300">Status</label>
-                        <select id="status" class="w-full md:w-40 px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-slate-700 dark:text-white">
-                            <option value="all">Semua</option>
-                            <option value="completed">Selesai</option>
-                            <option value="ongoing">Berjalan</option>
-                            <option value="dropped">Dropped</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="year" class="block text-sm font-medium mb-1 dark:text-gray-300">Tahun</label>
-                        <select id="year" class="w-full md:w-32 px-4 py-2 border border-gray-300 dark:border-slate-600 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-slate-700 dark:text-white">
-                            <option value="all">Semua</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                        </select>
-                    </div>
+            <!-- Filter Section -->
+            <div class="mb-8 flex flex-col gap-4">
+                <div class="relative w-full sm:w-1/3">
+                    <input id="search" type="text" placeholder="Cari proyek..." class="w-full pl-10 pr-4 py-2 rounded-lg border border-gray-300 dark:border-slate-700 dark:bg-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                </div>
+                <div id="letterFilter" class="flex flex-wrap gap-2">
+                    <button class="filter-btn" data-letter="all">Semua</button>
+                    <button class="filter-btn" data-letter="B">B</button>
+                    <button class="filter-btn" data-letter="K">K</button>
+                    <button class="filter-btn" data-letter="T">T</button>
                 </div>
             </div>
-            <!-- Anime Projects Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="animeProjectsContainer">
-                <!-- Project 1 -->
-                <div class="anime-card bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover" data-status="completed" data-year="2023" data-title="jujutsu kaisen">
-                    <div class="relative h-64">
-                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Jujutsu Kaisen" class="w-full h-full object-cover">
-                        <div class="anime-overlay">
-                            <h3 class="text-xl font-bold mb-2">Jujutsu Kaisen S2</h3>
-                            <p class="text-sm mb-4">Musim Kedua</p>
-                            <a href="#jujutsu-kaisen" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-lg dark:text-white">Jujutsu Kaisen S2</h3>
-                            <span class="badge badge-success">Selesai</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Pengerjaan hardsub untuk seluruh episode musim kedua.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500 dark:text-gray-400">Jul - Des 2023</span>
-                            <span class="text-xs text-gray-500 dark:text-gray-400">24 Episode</span>
-                        </div>
-                    </div>
+            <!-- Anime Projects List -->
+            <div id="anime-projects">
+                <!-- B Category -->
+                <div class="category-section mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 dark:text-white">B</h3>
+                    <ul class="space-y-2 list-disc list-inside">
+                        <li class="anime-item dark:text-white" data-title="Benriya Saitou-san, Isekai ni Iku" data-initial="B">
+                            Benriya Saitou-san, Isekai ni Iku
+                        </li>
+                    </ul>
                 </div>
-                <!-- Project 2 -->
-                <div class="anime-card bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover" data-status="ongoing" data-year="2023" data-title="one piece">
-                    <div class="relative h-64">
-                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="One Piece" class="w-full h-full object-cover">
-                        <div class="anime-overlay">
-                            <h3 class="text-xl font-bold mb-2">One Piece</h3>
-                            <p class="text-sm mb-4">Episode 1000+</p>
-                            <a href="#one-piece" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-lg dark:text-white">One Piece</h3>
-                            <span class="badge badge-primary">Berjalan</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Hardsub episode mingguan mulai episode 1000+.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500 dark:text-gray-400">Jan 2023 - Sekarang</span>
-                            <span class="text-xs text-gray-500 dark:text-gray-400">40+ Episode</span>
-                        </div>
-                    </div>
+                <!-- K Category -->
+                <div class="category-section mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 dark:text-white">K</h3>
+                    <ul class="space-y-2 list-disc list-inside">
+                        <li class="anime-item dark:text-white" data-title="Kamonohashi Ron no Kindan Suiri" data-initial="K">
+                            Kamonohashi Ron no Kindan Suiri
+                        </li>
+                        <li class="anime-item dark:text-white" data-title="Kanchigai no Atelier Meister" data-initial="K">
+                            Kanchigai no Atelier Meister
+                        </li>
+                    </ul>
                 </div>
-                <!-- Project 3 -->
-                <div class="anime-card bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover" data-status="completed" data-year="2022" data-title="spy x family">
-                    <div class="relative h-64">
-                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Spy x Family" class="w-full h-full object-cover">
-                        <div class="anime-overlay">
-                            <h3 class="text-xl font-bold mb-2">Spy x Family</h3>
-                            <p class="text-sm mb-4">Musim Pertama</p>
-                            <a href="#spy-family" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-lg dark:text-white">Spy x Family</h3>
-                            <span class="badge badge-success">Selesai</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Hardsub untuk seluruh musim pertama (25 episode).</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500 dark:text-gray-400">Apr - Des 2022</span>
-                            <span class="text-xs text-gray-500 dark:text-gray-400">25 Episode</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 4 -->
-                <div class="anime-card bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover" data-status="dropped" data-year="2021" data-title="demon slayer">
-                    <div class="relative h-64">
-                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Demon Slayer" class="w-full h-full object-cover">
-                        <div class="anime-overlay">
-                            <h3 class="text-xl font-bold mb-2">Demon Slayer</h3>
-                            <p class="text-sm mb-4">Arc Mugen Train</p>
-                            <a href="#demon-slayer" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-lg dark:text-white">Demon Slayer: Mugen Train</h3>
-                            <span class="badge badge-secondary">Dropped</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Hardsub untuk arc Mugen Train (7 episode).</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500 dark:text-gray-400">Okt - Des 2021</span>
-                            <span class="text-xs text-gray-500 dark:text-gray-400">7 Episode</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 5 -->
-                <div class="anime-card bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover" data-status="completed" data-year="2020" data-title="attack on titan">
-                    <div class="relative h-64">
-                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Attack on Titan" class="w-full h-full object-cover">
-                        <div class="anime-overlay">
-                            <h3 class="text-xl font-bold mb-2">Attack on Titan</h3>
-                            <p class="text-sm mb-4">Musim Final</p>
-                            <a href="#aot" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-lg dark:text-white">Attack on Titan Final Season</h3>
-                            <span class="badge badge-success">Selesai</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Hardsub untuk bagian pertama musim final (16 episode).</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500 dark:text-gray-400">Des 2020 - Mar 2021</span>
-                            <span class="text-xs text-gray-500 dark:text-gray-400">16 Episode</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project 6 -->
-                <div class="anime-card bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover" data-status="completed" data-year="2020" data-title="haikyuu">
-                    <div class="relative h-64">
-                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Haikyuu" class="w-full h-full object-cover">
-                        <div class="anime-overlay">
-                            <h3 class="text-xl font-bold mb-2">Haikyuu!!</h3>
-                            <p class="text-sm mb-4">Musim Keempat</p>
-                            <a href="#haikyuu" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-bold text-lg dark:text-white">Haikyuu!! To The Top</h3>
-                            <span class="badge badge-success">Selesai</span>
-                        </div>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Hardsub untuk musim keempat (13 episode).</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500 dark:text-gray-400">Jan - Apr 2020</span>
-                            <span class="text-xs text-gray-500 dark:text-gray-400">13 Episode</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Project Details -->
-            <div class="mt-16 space-y-16">
-                <!-- Jujutsu Kaisen Detail -->
-                <div id="jujutsu-kaisen" class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700">
-                    <div class="flex flex-col md:flex-row gap-8">
-                        <div class="md:w-1/3">
-                            <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Jujutsu Kaisen" class="w-full rounded-lg">
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <span class="badge badge-primary">Action</span>
-                                <span class="badge badge-primary">Supernatural</span>
-                                <span class="badge badge-primary">Shounen</span>
-                            </div>
-                        </div>
-                        <div class="md:w-2/3">
-                            <h3 class="text-2xl font-bold dark:text-white mb-2">Jujutsu Kaisen Season 2</h3>
-                            <div class="flex items-center gap-4 mb-4">
-                                <span class="badge badge-success">Selesai</span>
-                                <span class="text-gray-600 dark:text-gray-400">Jul - Des 2023</span>
-                                <span class="text-gray-600 dark:text-gray-400">24 Episode</span>
-                            </div>
-                            <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                Proyek hardsub untuk musim kedua Jujutsu Kaisen yang mencakup arc "Hidden Inventory" dan "Shibuya Incident".
-                                Saya bertanggung jawab untuk penerjemahan, typesetting, dan encoding video dengan kualitas 1080p.
-                            </p>
-                            <div class="mb-6">
-                                <h4 class="font-bold dark:text-white mb-2">Teknik yang Digunakan:</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="badge badge-secondary">Aegisub</span>
-                                    <span class="badge badge-secondary">HandBrake</span>
-                                    <span class="badge badge-secondary">FFmpeg</span>
-                                    <span class="badge badge-secondary">Photoshop</span>
-                                </div>
-                            </div>
-                            <div class="video-container mb-6">
-                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="flex flex-wrap gap-4">
-                                <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition flex items-center gap-2">
-                                    <i class="fab fa-youtube"></i> Playlist
-                                </a>
-                                <a href="#" class="px-4 py-2 border border-blue-500 text-blue-500 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-700 transition flex items-center gap-2">
-                                    <i class="fas fa-download"></i> Torrent
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- One Piece Detail -->
-                <div id="one-piece" class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700">
-                    <div class="flex flex-col md:flex-row gap-8">
-                        <div class="md:w-1/3">
-                            <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="One Piece" class="w-full rounded-lg">
-                            <div class="mt-4 flex flex-wrap gap-2">
-                                <span class="badge badge-primary">Action</span>
-                                <span class="badge badge-primary">Adventure</span>
-                                <span class="badge badge-primary">Comedy</span>
-                            </div>
-                        </div>
-                        <div class="md:w-2/3">
-                            <h3 class="text-2xl font-bold dark:text-white mb-2">One Piece (Episode 1000+)</h3>
-                            <div class="flex items-center gap-4 mb-4">
-                                <span class="badge badge-primary">Berjalan</span>
-                                <span class="text-gray-600 dark:text-gray-400">Jan 2023 - Sekarang</span>
-                                <span class="text-gray-600 dark:text-gray-400">40+ Episode</span>
-                            </div>
-                            <p class="text-gray-700 dark:text-gray-300 mb-4">
-                                Proyek hardsub mingguan untuk One Piece mulai episode 1000+. Saya mengerjakan penerjemahan dan typesetting
-                                untuk fansub group dengan deadline ketat setiap minggu. Format yang digunakan adalah MKV dengan dual audio
-                                (Jepang & Inggris) dan subtitle Indonesia.
-                            </p>
-                            <div class="mb-6">
-                                <h4 class="font-bold dark:text-white mb-2">Teknik yang Digunakan:</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span class="badge badge-secondary">Aegisub</span>
-                                    <span class="badge badge-secondary">MKVToolNix</span>
-                                    <span class="badge badge-secondary">After Effects</span>
-                                </div>
-                            </div>
-                            <div class="video-container mb-6">
-                                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                            <div class="flex flex-wrap gap-4">
-                                <a href="#" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition flex items-center gap-2">
-                                    <i class="fab fa-youtube"></i> Playlist
-                                </a>
-                                <a href="#" class="px-4 py-2 border border-blue-500 text-blue-500 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-700 transition flex items-center gap-2">
-                                    <i class="fas fa-download"></i> Torrent
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <!-- T Category -->
+                <div class="category-section mb-8">
+                    <h3 class="text-2xl font-semibold mb-4 dark:text-white">T</h3>
+                    <ul class="space-y-2 list-disc list-inside">
+                        <li class="anime-item dark:text-white" data-title="Tomo-chan wa Onna no Ko" data-initial="T">
+                            Tomo-chan wa Onna no Ko
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -481,7 +278,6 @@
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
         const html = document.documentElement;
-        // Check for saved user preference or use system preference
         const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         const savedMode = localStorage.getItem('darkMode');
         if (savedMode === 'dark' || (!savedMode && userPrefersDark)) {
@@ -508,37 +304,64 @@
                         top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
-                    // Close mobile menu if open
                     mobileMenu.classList.add('hidden');
                 }
             });
         });
         // Filter Anime Projects
         const searchInput = document.getElementById('search');
-        const statusFilter = document.getElementById('status');
-        const yearFilter = document.getElementById('year');
-        const animeProjects = document.querySelectorAll('.anime-card');
+        const letterFilter = document.getElementById('letterFilter');
+        const filterButtons = letterFilter.querySelectorAll('.filter-btn');
+        const animeItems = document.querySelectorAll('.anime-item');
+        const categorySections = document.querySelectorAll('.category-section');
+        
         function filterProjects() {
             const searchTerm = searchInput.value.toLowerCase();
-            const statusValue = statusFilter.value;
-            const yearValue = yearFilter.value;
-            animeProjects.forEach(project => {
-                const title = project.getAttribute('data-title').toLowerCase();
-                const status = project.getAttribute('data-status');
-                const year = project.getAttribute('data-year');
+            const activeLetter = letterFilter.querySelector('.filter-btn.active')?.getAttribute('data-letter') || 'all';
+            
+            // Filter individual items
+            animeItems.forEach(item => {
+                const title = item.getAttribute('data-title').toLowerCase();
+                const initial = item.getAttribute('data-initial');
                 const matchesSearch = title.includes(searchTerm);
-                const matchesStatus = statusValue === 'all' || status === statusValue;
-                const matchesYear = yearValue === 'all' || year === yearValue;
-                if (matchesSearch && matchesStatus && matchesYear) {
-                    project.style.display = 'block';
+                const matchesLetter = activeLetter === 'all' || initial === activeLetter;
+                
+                if (matchesSearch && matchesLetter) {
+                    item.style.display = 'list-item';
                 } else {
-                    project.style.display = 'none';
+                    item.style.display = 'none';
                 }
             });
+            
+            // Show/hide category sections based on visible items
+            categorySections.forEach(section => {
+                const itemsInSection = section.querySelectorAll('.anime-item');
+                const hasVisibleItems = Array.from(itemsInSection).some(item => item.style.display === 'list-item');
+                section.style.display = hasVisibleItems ? 'block' : 'none';
+            });
         }
+        
+        // Search input event listener
         searchInput.addEventListener('input', filterProjects);
-        statusFilter.addEventListener('change', filterProjects);
-        yearFilter.addEventListener('change', filterProjects);
+        
+        // Letter filter button event listeners
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                button.classList.add('active');
+                // Filter projects
+                filterProjects();
+            });
+        });
+        
+        // Set "Semua" as default active filter
+        letterFilter.querySelector('[data-letter="all"]').classList.add('active');
+        
+        // Initial filter on page load
+        filterProjects();
+        
         // Back to Top Button
         const backToTopButton = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {

@@ -296,7 +296,7 @@
                 <div class="category-section mb-8">
                     <h3 class="text-2xl font-semibold mb-4 dark:text-white">B</h3>
                     <ul class="space-y-2 list-disc list-inside">
-                        <li class="anime-item dark:text-white" data-title="Benriya Saitou-san, Isekai ni Iku" data-initial="B">
+                        <li class="anime-item dark:text-white" data-title="Benriya Saitou-san, Isekai ni Iku" data-initial="B" data-download="https://t.me/benriya_saitousan_indo">
                             Benriya Saitou-san, Isekai ni Iku
                         </li>
                     </ul>
@@ -305,10 +305,10 @@
                 <div class="category-section mb-8">
                     <h3 class="text-2xl font-semibold mb-4 dark:text-white">K</h3>
                     <ul class="space-y-2 list-disc list-inside">
-                        <li class="anime-item dark:text-white" data-title="Kamonohashi Ron no Kindan Suiri" data-initial="K">
+                        <li class="anime-item dark:text-white" data-title="Kamonohashi Ron no Kindan Suiri" data-initial="K" data-download="https://t.me/kamonohashi_ron_indo">
                             Kamonohashi Ron no Kindan Suiri
                         </li>
-                        <li class="anime-item dark:text-white" data-title="Kanchigai no Atelier Meister" data-initial="K">
+                        <li class="anime-item dark:text-white" data-title="Kanchigai no Atelier Meister" data-initial="K" data-download="https://t.me/kanchigainoateliersubindo">
                             Kanchigai no Atelier Meister
                         </li>
                     </ul>
@@ -317,7 +317,7 @@
                 <div class="category-section mb-8">
                     <h3 class="text-2xl font-semibold mb-4 dark:text-white">T</h3>
                     <ul class="space-y-2 list-disc list-inside">
-                        <li class="anime-item dark:text-white" data-title="Tomo-chan wa Onna no Ko" data-initial="T">
+                        <li class="anime-item dark:text-white" data-title="Tomo-chan wa Onna no Ko" data-initial="T" data-download="https://t.me/tomochan_indo">
                             Tomo-chan wa Onna no Ko
                         </li>
                     </ul>
@@ -485,13 +485,16 @@
             .then(response => response.json())
             .then(data => {
                 animeData = data;
+                console.log('Anime data loaded:', animeData); // Debug log
                 // Add click event listeners to anime items after data is loaded
                 animeItems.forEach(item => {
                     item.addEventListener('click', () => {
                         const title = item.getAttribute('data-title');
                         const data = animeData[title];
+                        const downloadUrl = item.getAttribute('data-download');
                         
                         if (data) {
+                            console.log('Selected title:', title, 'Data:', data, 'Download URL:', downloadUrl); // Debug log
                             // Populate modal with data
                             modalTitle.textContent = title;
                             modalJapaneseTitle.textContent = `Jepang: ${data.japaneseTitle}`;
@@ -502,10 +505,13 @@
                             modalSource.textContent = data.source;
                             modalGenre.textContent = data.genre;
                             modalSynopsis.textContent = data.synopsis;
-                            downloadLink.setAttribute('href', data.downloadLink);
+                            downloadLink.setAttribute('href', downloadUrl);
+                            console.log('Download link set to:', downloadUrl); // Debug log
                             
                             // Show modal
                             modal.style.display = 'block';
+                        } else {
+                            console.error('No data found for:', title); // Debug log
                         }
                     });
                 });
@@ -517,9 +523,9 @@
             modal.style.display = 'none';
         });
 
-        // Close modal when clicking outside of modal content
+        // Close modal when clicking outside, but prevent interference with download link
         window.addEventListener('click', (event) => {
-            if (event.target === modal) {
+            if (event.target === modal && !event.target.closest('.modal-content')) {
                 modal.style.display = 'none';
             }
         });

@@ -15,16 +15,6 @@
         .dark .nav-link {
             color: white;
         }
-        .dark .card {
-            background-color: rgb(30 41 59);
-            border-color: rgb(51 65 85);
-        }
-        .dark .section-title {
-            border-color: rgb(51 65 85);
-        }
-        .dark .social-icon {
-            color: white;
-        }
         .dark-mode-toggle {
             transition: all 0.3s ease;
         }
@@ -42,64 +32,38 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-        .dark .card-hover:hover {
-            box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.05);
-        }
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 3rem;
-            height: 3rem;
-            background-color: #3b82f6;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s;
-            z-index: 99;
-        }
-        .dark .back-to-top {
-            background-color: #60a5fa;
-        }
-        .back-to-top.visible {
-            opacity: 1;
-        }
-        .anime-card {
+        .social-icon {
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
-        .anime-card:hover .anime-overlay {
-            opacity: 1;
+        .social-icon:hover {
+            transform: scale(1.2) translateY(-5px);
         }
-        .anime-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            color: white;
-            padding: 1rem;
-            text-align: center;
+        .typing-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 28px;
+            background: #3b82f6;
+            margin-left: 5px;
+            animation: blink 1s infinite;
+        }
+        .dark .typing-cursor {
+            background: #60a5fa;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        .floating { animation: float 6s ease-in-out infinite; }
+        .glow {
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 transition-colors duration-300 min-h-screen">
+<body class="bg-gray-50 text-gray-800 transition-colors duration-300 min-h-screen dark:bg-slate-900 dark:text-white">
     <!-- Header/Navigation -->
     <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-sm dark:bg-slate-800/80 shadow-sm">
         <div class="container mx-auto px-6 py-4">
@@ -108,7 +72,7 @@
                     <a href="index.html">Portofolio</a>
                 </div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="index.html#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Beranda</a>
+                    <a href="index.html#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Beranda</a>
                     <a href="index.html#profile" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
                     <a href="tulisan.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Tulisan</a>
                     <a href="index.html#galeri" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
@@ -128,7 +92,7 @@
             <!-- Mobile Menu -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 pb-2">
                 <div class="flex flex-col space-y-3">
-                    <a href="index.html#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Beranda</a>
+                    <a href="index.html#home" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition active">Beranda</a>
                     <a href="index.html#profile" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Profil</a>
                     <a href="tulisan.html" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Tulisan</a>
                     <a href="index.html#galeri" class="nav-link hover:text-blue-500 dark:hover:text-blue-400 transition">Galeri</a>
@@ -142,255 +106,58 @@
     <main class="container mx-auto px-6 py-12">
         <!-- Home Section -->
         <section id="home" class="py-12 md:py-20 fade-in">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4 dark:text-white">Hai, Saya <span class="text-blue-500 dark:text-blue-400">John Doe</span></h1>
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 dark:text-gray-300">Pengembang Web & Pecinta Anime</h2>
-                    <p class="text-lg mb-8 dark:text-gray-400">Saya menciptakan situs web yang indah dan fungsional serta berbagi kegemaran saya terhadap anime melalui berbagai proyek.</p>
-                    <div class="flex space-x-4">
-                        <a href="#profile" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Pelajari Lebih Lanjut</a>
-                        <a href="#sosmed" class="px-6 py-3 border border-blue-500 text-blue-500 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-700 transition">Hubungi Saya</a>
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                <!-- Left Column - Text Content -->
+                <div class="lg:w-1/2 space-y-8">
+                    <h1 class="text-4xl md:text-6xl font-bold dark:text-white">
+                        Hai, Saya <span class="text-blue-500 dark:text-blue-400">John Doe</span>
+                    </h1>
+                    <div class="text-2xl md:text-3xl font-medium dark:text-gray-300">
+                        <span id="typing-text"></span><span class="typing-cursor"></span>
+                    </div>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Saya menciptakan situs web yang indah dan fungsional serta berbagi kegemaran saya terhadap anime melalui berbagai proyek. Dengan pengalaman lebih dari 5 tahun, saya membangun aplikasi web yang responsif dan performan tinggi.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#sosmed" class="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 glow">
+                            Hubungi Saya
+                        </a>
+                        <a href="#profile" class="border-2 border-blue-500 text-blue-500 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-slate-700 px-8 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
+                            Tentang Saya
+                        </a>
+                    </div>
+                    <div class="flex gap-6 pt-4">
+                        <a href="#" class="social-icon text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-300 text-2xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-icon text-blue-500 dark:text-blue-400 hover:text-blue-400 dark:hover:text-blue-300 text-2xl">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon text-blue-500 dark:text-blue-400 hover:text-blue-600 dark:hover:text-blue-400 text-2xl">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon text-blue-500 dark:text-blue-400 hover:text-pink-500 dark:hover:text-pink-400 text-2xl">
+                            <i class="fab fa-instagram"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="md:w-1/2 flex justify-center">
+                <!-- Right Column - Profile Image -->
+                <div class="lg:w-1/2 flex justify-center relative">
                     <div class="relative">
-                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-blue-500 dark:border-blue-400 shadow-lg">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Profil" class="w-full h-full object-cover">
-                        </div>
-                        <div class="absolute -bottom-4 -right-4 bg-blue-500 dark:bg-blue-600 text-white px-4 py-2 rounded-lg shadow-lg">
-                            <span>Tersedia untuk bekerja</span>
-                        </div>
+                        <div class="absolute -inset-4 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 opacity-75 blur-lg dark:from-blue-400 dark:to-blue-500"></div>
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                             alt="Profil"
+                             class="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-gray-200 dark:border-slate-700 floating">
+                    </div>
+                    <!-- Floating badges -->
+                    <div class="absolute -bottom-6 -left-6 bg-blue-500 dark:bg-blue-600 px-4 py-2 rounded-full flex items-center gap-2">
+                        <div class="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
+                        <span class="text-sm font-medium text-white">Tersedia untuk bekerja</span>
+                    </div>
+                    <div class="absolute -top-6 -right-6 bg-blue-900/80 dark:bg-blue-800/80 backdrop-blur-sm px-4 py-2 rounded-full">
+                        <span class="text-sm font-medium text-white">5+ Tahun Pengalaman</span>
                     </div>
                 </div>
-            </div>
-        </section>
-        <!-- Profile Section -->
-        <section id="profile" class="py-12 fade-in">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold mb-4 dark:text-white flex items-center">
-                    <span class="section-title border-b-4 border-blue-500 pb-2 pr-4">Profil Saya</span>
-                </h2>
-            </div>
-            <div class="flex flex-col lg:flex-row gap-8">
-                <div class="lg:w-1/3">
-                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700">
-                        <div class="flex flex-col items-center mb-6">
-                            <div class="w-32 h-32 rounded-full overflow-hidden mb-4 border-4 border-blue-500 dark:border-blue-400">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Profil" class="w-full h-full object-cover">
-                            </div>
-                            <h3 class="text-xl font-bold dark:text-white">John Doe</h3>
-                            <p class="text-gray-600 dark:text-gray-400">Pengembang Web</p>
-                        </div>
-                        <div class="space-y-4">
-                            <div>
-                                <h4 class="font-semibold dark:text-white">Tentang Saya</h4>
-                                <p class="text-gray-600 dark:text-gray-400">Pengembang berpengalaman lebih dari 5 tahun dalam pembuatan aplikasi web dan cinta pada budaya anime.</p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold dark:text-white">Kontak</h4>
-                                <p class="text-gray-600 dark:text-gray-400">
-                                    <i class="fas fa-envelope mr-2"></i> john.doe@example.com<br>
-                                    <i class="fas fa-phone mr-2"></i> +1 (123) 456-7890
-                                </p>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold dark:text-white">Keterampilan</h4>
-                                <div class="flex flex-wrap gap-2 mt-2">
-                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded dark:bg-blue-900 dark:text-blue-300">HTML/CSS</span>
-                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded dark:bg-blue-900 dark:text-blue-300">JavaScript</span>
-                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded dark:bg-blue-900 dark:text-blue-300">React</span>
-                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded dark:bg-blue-900 dark:text-blue-300">Node.js</span>
-                                    <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded dark:bg-blue-900 dark:text-blue-300">UI/UX</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:w-2/3">
-                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700 mb-6">
-                        <h3 class="text-xl font-bold mb-4 dark:text-white">Pengalaman Kerja</h3>
-                        <div class="space-y-6">
-                            <div class="border-l-4 border-blue-500 pl-4">
-                                <h4 class="font-bold dark:text-white">Pengembang Web Senior</h4>
-                                <p class="text-gray-600 dark:text-gray-400">Tech Solutions Inc. • 2020 - Sekarang</p>
-                                <p class="mt-2 text-gray-600 dark:text-gray-400">Pengembang utama untuk proyek klien, khususnya dalam aplikasi React dan desain responsif.</p>
-                            </div>
-                            <div class="border-l-4 border-blue-500 pl-4">
-                                <h4 class="font-bold dark:text-white">Pengembang Web</h4>
-                                <p class="text-gray-600 dark:text-gray-400">Digital Creations • 2017 - 2020</p>
-                                <p class="mt-2 text-gray-600 dark:text-gray-400">Mengembangkan dan memelihara situs WordPress dan aplikasi web khusus untuk bisnis kecil.</p>
-                            </div>
-                            <div class="border-l-4 border-blue-500 pl-4">
-                                <h4 class="font-bold dark:text-white">Pengembang Junior</h4>
-                                <p class="text-gray-600 dark:text-gray-400">WebStart • 2015 - 2017</p>
-                                <p class="mt-2 text-gray-600 dark:text-gray-400">Membantu dalam pengembangan front-end dan belajar teknologi web modern.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700">
-                        <h3 class="text-xl font-bold mb-4 dark:text-white">Pendidikan</h3>
-                        <div class="space-y-6">
-                            <div class="border-l-4 border-blue-500 pl-4">
-                                <h4 class="font-bold dark:text-white">MSc di Ilmu Komputer</h4>
-                                <p class="text-gray-600 dark:text-gray-400">Universitas Negeri • 2013 - 2015</p>
-                                <p class="mt-2 text-gray-600 dark:text-gray-400">Khusus dalam Interaksi Manusia-Komputer dan Teknologi Web.</p>
-                            </div>
-                            <div class="border-l-4 border-blue-500 pl-4">
-                                <h4 class="font-bold dark:text-white">BSc di Teknologi Informasi</h4>
-                                <p class="text-gray-600 dark:text-gray-400">Universitas Negeri • 2009 - 2013</p>
-                                <p class="mt-2 text-gray-600 dark:text-gray-400">Lulus dengan pujian. Fokus pada pengembangan perangkat lunak dan sistem basis data.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Gallery Section -->
-        <section id="galeri" class="py-12 fade-in">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold mb-4 dark:text-white flex items-center">
-                    <span class="section-title border-b-4 border-blue-500 pb-2 pr-4">Galeri Saya</span>
-                </h2>
-                <p class="dark:text-gray-400">Koleksi foto dan karya desain saya.</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1682686580391-615b4b716bd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 1" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1695653423034-a39e9a819aff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 2" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694464892478-5e8650907ce6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 3" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694896878157-1f1f9b1a0a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 4" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694896878157-1f1f9b1a0a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 5" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694896878157-1f1f9b1a0a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 6" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694896878157-1f1f9b1a0a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 7" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694896878157-1f1f9b1a0a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 8" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-            </div>
-            <div class="mt-8 text-center">
-                <a href="#" class="px-6 py-3 border border-blue-500 text-blue-500 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-700 transition">Lihat Lebih Banyak</a>
-            </div>
-        </section>
-        <!-- Anime Projects Section -->
-        <section id="anime" class="py-12 fade-in">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold mb-4 dark:text-white flex items-center">
-                    <span class="section-title border-b-4 border-blue-500 pb-2 pr-4">Proyek Anime</span>
-                </h2>
-                <p class="dark:text-gray-400">Karya terbaru saya yang berhubungan dengan anime dan kolaborasi.</p>
-            </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Anime Project 1 (Latest) -->
-                <div class="anime-card bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover">
-                    <div class="relative h-64">
-                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Proyek Anime 1" class="w-full h-full object-cover">
-                        <div class="anime-overlay">
-                            <h3 class="text-xl font-bold mb-2">Seri Review Anime</h3>
-                            <p class="text-sm mb-4">Review anime musiman</p>
-                            <a href="proyek-anime.html#proyek1" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg dark:text-white mb-2">Seri Review Anime</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Analisis dalam anime musiman dengan rating dan rekomendasi.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500 dark:text-gray-400">Okt 2023</span>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-300">Berjalan</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Anime Project 2 (Latest) -->
-                <div class="anime-card bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover">
-                    <div class="relative h-64">
-                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Proyek Anime 2" class="w-full h-full object-cover">
-                        <div class="anime-overlay">
-                            <h3 class="text-xl font-bold mb-2">Desain Karakter</h3>
-                            <p class="text-sm mb-4">Konsep karakter anime asli</p>
-                            <a href="proyek-anime.html#proyek2" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg dark:text-white mb-2">Desain Karakter</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Konsep dan sketsa pengembangan karakter anime asli.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500 dark:text-gray-400">Sep 2023</span>
-                            <span class="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full dark:bg-green-900 dark:text-green-300">Selesai</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Anime Project 3 (Latest) -->
-                <div class="anime-card bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover">
-                    <div class="relative h-64">
-                        <img src="https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Proyek Anime 3" class="w-full h-full object-cover">
-                        <div class="anime-overlay">
-                            <h3 class="text-xl font-bold mb-2">Podcast Anime</h3>
-                            <p class="text-sm mb-4">Diskusi mingguan tentang anime</p>
-                            <a href="proyek-anime.html#proyek3" class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition text-sm">Lihat Detail</a>
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg dark:text-white mb-2">Podcast Anime</h3>
-                        <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">Podcast mingguan yang membahas tren dan berita anime terbaru.</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs text-gray-500 dark:text-gray-400">Agu 2023</span>
-                            <span class="px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-full dark:bg-blue-900 dark:text-blue-300">Berjalan</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-8 text-center">
-                <a href="proyek-anime.html" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Lihat Semua Proyek Anime</a>
-            </div>
-        </section>
-        <!-- Social Media Section -->
-        <section id="sosmed" class="py-12 fade-in">
-            <div class="mb-12">
-                <h2 class="text-3xl font-bold mb-4 dark:text-white flex items-center">
-                    <span class="section-title border-b-4 border-blue-500 pb-2 pr-4">Hubungi Saya</span>
-                </h2>
-                <p class="dark:text-gray-400">Ikuti saya di media sosial untuk pembaruan dan konten lebih banyak.</p>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <a href="#" class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700 flex flex-col items-center hover:bg-gray-50 dark:hover:bg-slate-700 transition">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
-                        <i class="fab fa-github text-3xl text-blue-500 dark:text-blue-400"></i>
-                    </div>
-                    <h3 class="font-bold dark:text-white mb-1">GitHub</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">@johndoe</p>
-                </a>
-                <a href="#" class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700 flex flex-col items-center hover:bg-gray-50 dark:hover:bg-slate-700 transition">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
-                        <i class="fab fa-twitter text-3xl text-blue-400 dark:text-blue-300"></i>
-                    </div>
-                    <h3 class="font-bold dark:text-white mb-1">Twitter</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">@johndoe</p>
-                </a>
-                <a href="#" class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700 flex flex-col items-center hover:bg-gray-50 dark:hover:bg-slate-700 transition">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
-                        <i class="fab fa-linkedin-in text-3xl text-blue-600 dark:text-blue-400"></i>
-                    </div>
-                    <h3 class="font-bold dark:text-white mb-1">LinkedIn</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">John Doe</p>
-                </a>
-                <a href="#" class="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-slate-700 flex flex-col items-center hover:bg-gray-50 dark:hover:bg-slate-700 transition">
-                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-4">
-                        <i class="fab fa-instagram text-3xl text-pink-500 dark:text-pink-400"></i>
-                    </div>
-                    <h3 class="font-bold dark:text-white mb-1">Instagram</h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm">@johndoe</p>
-                </a>
             </div>
         </section>
     </main>
@@ -419,10 +186,6 @@
             </div>
         </div>
     </footer>
-    <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </div>
     <script>
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
@@ -492,20 +255,43 @@
         fadeElements.forEach(element => {
             fadeInObserver.observe(element);
         });
-        // Back to Top Button
-        const backToTopButton = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
+        // Typing animation
+        const typingText = document.getElementById('typing-text');
+        const phrases = ["Pengembang Web", "Pecinta Anime", "Desainer UI/UX", "Pemecah Masalah"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let isEnd = false;
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
             } else {
-                backToTopButton.classList.remove('visible');
+                typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
             }
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                isEnd = true;
+                setTimeout(() => {
+                    isDeleting = true;
+                }, 1500);
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+            }
+            const speed = isDeleting ? 100 : isEnd ? 100 : 150;
+            setTimeout(type, speed);
+        }
+        // Start typing animation
+        setTimeout(type, 1000);
+        // Add glow effect on hover to profile image
+        const profileImg = document.querySelector('img.floating');
+        profileImg.addEventListener('mouseenter', () => {
+            profileImg.classList.add('glow');
         });
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+        profileImg.addEventListener('mouseleave', () => {
+            profileImg.classList.remove('glow');
         });
     </script>
 </body>

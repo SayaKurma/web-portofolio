@@ -41,6 +41,52 @@
         .social-icon:hover {
             transform: scale(1.2) translateY(-5px);
         }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 10px 25px -5px rgba(255, 255, 255, 0.05);
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 99;
+        }
+        .dark .back-to-top {
+            background-color: #60a5fa;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+        .gallery-item.image-only img {
+            height: 100%;
+        }
+        .gallery-item:not(.image-only) img {
+            height: 12rem; /* Matches h-48 for card mode */
+        }
+        .card-container {
+            position: relative;
+            z-index: 1;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 transition-colors duration-300 min-h-screen dark:bg-slate-900 dark:text-white">
@@ -84,42 +130,40 @@
     </header>
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-12">
-        <!-- Gallery Section -->
-        <section id="galeri" class="py-12 fade-in">
+        <!-- Galeri Section -->
+        <section id="galeri" class="py-8 fade-in">
             <div class="mb-12">
                 <h2 class="text-3xl font-bold mb-4 dark:text-white flex items-center">
                     <span class="section-title border-b-4 border-blue-500 pb-2 pr-4">Galeri Saya</span>
                 </h2>
-                <p class="dark:text-gray-400">Koleksi foto dan karya desain saya.</p>
+                <p class="dark:text-gray-400">Koleksi karya visual dan fotografi saya.</p>
             </div>
-            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1682686580391-615b4b716bd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 1" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1695653423034-a39e9a819aff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 2" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694464892478-5e8650907ce6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 3" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694896878157-1f1f9b1a0a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 4" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694896878157-1f1f9b1a0a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 5" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694896878157-1f1f9b1a0a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 6" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694896878157-1f1f9b1a0a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 7" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
-                </div>
-                <div class="overflow-hidden rounded-lg shadow-md">
-                    <img src="https://images.unsplash.com/photo-1694896878157-1f1f9b1a0a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Galeri 8" class="w-full h-48 object-cover hover:scale-105 transition duration-300">
+            <!-- Filter Section -->
+            <div class="mb-8">
+                <div class="flex flex-wrap gap-2">
+                    <button class="tag-filter-btn px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition active" data-tag="all">Semua</button>
+                    <button class="tag-filter-btn px-4 py-2 bg-gray-200 dark:bg-slate-700 rounded-lg hover:bg-gray-300 dark:hover:bg-slate-600 transition" data-tag="fotografi">Fotografi</button>
+                    <button class="tag-filter-btn px-4 py-2 bg-gray-200 dark:bg-slate-700 rounded-lg hover:bg-gray-300 dark:hover:bg-slate-600 transition" data-tag="karya">Karya</button>
                 </div>
             </div>
-            <div class="mt-8 text-center">
-                <a href="#" class="px-6 py-3 border border-blue-500 text-blue-500 dark:text-blue-400 rounded-lg hover:bg-blue-50 dark:hover:bg-slate-700 transition">Lihat Lebih Banyak</a>
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                <div class="gallery-item" data-tag="fotografi">
+                    <img src="https://media.discordapp.net/attachments/1370635728635301942/1370636027215216730/2024_0824_04174200.jpg?ex=682037c6&is=681ee646&hm=25126e2cd027734c988d43e9bebdb3763d084a1f0ef4369b27c13f2bb7677199&=&width=720&height=480" alt="Fotografi 1">
+                    <div class="card-container bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover">
+                        <div class="p-4">
+                            <span class="tag-label text-sm font-medium text-blue-800 dark:text-blue-300 bg-blue-100 dark:bg-blue-900 px-2.5 py-0.5 rounded">Fotografi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item" data-tag="fotografi">
+                    <img src="https://media.discordapp.net/attachments/1370635728635301942/1370636328093356053/2024_1108_02334700.jpg?ex=6820380d&is=681ee68d&hm=b47d4b4f92908d873ec3788ddcf7787ca07594fccb5df3f9b75ac43425f0240c&=&width=720&height=480" alt="Fotografi 2">
+                    <div class="card-container bg-white dark:bg-slate-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-slate-700 transition-all duration-300 card-hover">
+                        <div class="p-4">
+                            <span class="tag-label text-sm font-medium text-blue-800 dark:text-blue-300 bg-blue-100 dark:bg-blue-900 px-2.5 py-0.5 rounded">Fotografi</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -148,6 +192,10 @@
             </div>
         </div>
     </footer>
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
     <script>
         // Dark Mode Toggle
         const darkModeToggle = document.getElementById('darkModeToggle');
@@ -167,17 +215,79 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        // Animation on scroll
-        const fadeElements = document.querySelectorAll('.fade-in');
-        const fadeInObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    mobileMenu.classList.add('hidden');
                 }
             });
-        }, { threshold: 0.1 });
-        fadeElements.forEach(element => {
-            fadeInObserver.observe(element);
+        });
+        // Tag Filter Functionality
+        const tagFilterButtons = document.querySelectorAll('.tag-filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        function filterGallery() {
+            const activeTag = document.querySelector('.tag-filter-btn.active')?.getAttribute('data-tag') || 'all';
+            galleryItems.forEach(item => {
+                const itemTag = item.getAttribute('data-tag');
+                const cardContainer = item.querySelector('.card-container');
+                if (activeTag === 'all' || itemTag === activeTag) {
+                    item.style.display = 'block';
+                    if (activeTag === 'all') {
+                        // Show full card layout
+                        cardContainer.style.display = 'block';
+                        item.classList.remove('image-only');
+                    } else {
+                        // Show only image
+                        cardContainer.style.display = 'none';
+                        item.classList.add('image-only');
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+        // Tag filter button event listeners
+        tagFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                tagFilterButtons.forEach(btn => {
+                    btn.classList.remove('active', 'bg-blue-500', 'text-white');
+                    btn.classList.add('bg-gray-200', 'dark:bg-slate-700');
+                });
+                // Add active class to clicked button
+                button.classList.add('active', 'bg-blue-500', 'text-white');
+                button.classList.remove('bg-gray-200', 'dark:bg-slate-700');
+                // Filter gallery
+                filterGallery();
+            });
+        });
+        // Set "Semua" as default active filter
+        document.querySelector('.tag-filter-btn[data-tag="all"]').classList.add('active', 'bg-blue-500', 'text-white');
+        document.querySelector('.tag-filter-btn[data-tag="all"]').classList.remove('bg-gray-200', 'dark:bg-slate-700');
+        // Initial filter on page load
+        filterGallery();
+        // Back to Top Button
+        const backToTopButton = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>

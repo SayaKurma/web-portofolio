@@ -7,7 +7,8 @@
         "studio": "C2C",
         "source": "Manga",
         "genre": "Adventure, Comedy, Fantasy, Isekai",
-        "synopsis": "Saitou, seorang tukang serba bisa, tiba-tiba terlempar ke dunia fantasi. Bersama teman-temannya, ia menjalani petualangan seru sambil memanfaatkan keahlian praktisnya untuk bertahan hidup dan membantu orang lain."
+        "synopsis": "Saitou, seorang tukang serba bisa, tiba-tiba terlempar ke dunia fantasi. Bersama teman-temannya, ia menjalani petualangan seru sambil memanfaatkan keahlian praktisnya untuk bertahan hidup dan membantu orang lain.",
+        "downloadLink": "https://example.com/download/benriya-saitou-san"
     },
     "Kamonohashi Ron no Kindan Suiri": {
         "japaneseTitle": "鴨乃橋ロンの禁断推理",
@@ -17,7 +18,8 @@
         "studio": "Diomedéa",
         "source": "Manga",
         "genre": "Mystery, Comedy, Crime",
-        "synopsis": "Ron Kamonohashi, seorang detektif jenius dengan masa lalu kelam, bekerja sama dengan Totomaru Isshiki untuk memecahkan kasus-kasus misterius yang penuh teka-teki."
+        "synopsis": "Ron Kamonohashi, seorang detektif jenius dengan masa lalu kelam, bekerja sama dengan Totomaru Isshiki untuk memecahkan kasus-kasus misterius yang penuh teka-teki.",
+        "downloadLink": "https://example.com/download/kamonohashi-ron"
     },
     "Kanchigai no Atelier Meister": {
         "japaneseTitle": "カン違いの工房主",
@@ -27,7 +29,8 @@
         "studio": "Studio TBD",
         "source": "Light Novel",
         "genre": "Fantasy, Comedy, Slice of Life",
-        "synopsis": "Seorang pengrajin muda secara tidak sengaja menjadi terkenal karena kesalahpahaman, dan kini ia harus menjalankan atelier-nya sambil berusaha memenuhi ekspektasi yang salah kaprah tersebut."
+        "synopsis": "Seorang pengrajin muda secara tidak sengaja menjadi terkenal karena kesalahpahaman, dan kini ia harus menjalankan atelier-nya sambil berusaha memenuhi ekspektasi yang salah kaprah tersebut.",
+        "downloadLink": "https://example.com/download/kanchigai-atelier"
     },
     "Tomo-chan wa Onna no Ko": {
         "japaneseTitle": "トモちゃんは女の子！",
@@ -37,6 +40,7 @@
         "studio": "Lay-duce",
         "source": "Manga",
         "genre": "Comedy, Romance, School",
-        "synopsis": "Tomo Aizawa, seorang gadis tomboy, berusaha membuat teman masa kecilnya, Junichirou, menyadari bahwa ia adalah seorang perempuan dan bukan hanya 'teman laki-laki'."
+        "synopsis": "Tomo Aizawa, seorang gadis tomboy, berusaha membuat teman masa kecilnya, Junichirou, menyadari bahwa ia adalah seorang perempuan dan bukan hanya 'teman laki-laki'.",
+        "downloadLink": "https://example.com/download/tomo-chan"
     }
 }

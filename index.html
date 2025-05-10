@@ -181,61 +181,62 @@ class="relative w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 bor
 </div>
 </footer>
 <script>
-// Dark Mode Toggle
-const darkModeToggle = document.getElementById('darkModeToggle');
-const html = document.documentElement;
-const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-const savedMode = localStorage.getItem('darkMode');
-if (savedMode === 'dark' || (!savedMode && userPrefersDark)) {
-html.classList.add('dark');
-}
-darkModeToggle.addEventListener('click', () => {
-html.classList.toggle('dark');
-localStorage.setItem('darkMode', html.classList.contains('dark') ? 'dark' : 'light');
-});
-// Mobile Menu Toggle
-const mobileMenuButton = document.getElementById('mobileMenuButton');
-const mobileMenu = document.getElementById('mobileMenu');
-mobileMenuButton.addEventListener('click', () => {
-mobileMenu.classList.toggle('hidden');
-});
-// Typing animation
-const typingText = document.getElementById('typing-text');
-const phrases = ["Pengembang Web", "Pecinta Anime", "Desainer UI/UX", "Pemecah Masalah"];
-let phraseIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
-let isEnd = false;
-function type() {
-const currentPhrase = phrases[phraseIndex];
-if (isDeleting) {
-typingText.textContent = currentPhrase.substring(0, charIndex - 1);
-charIndex--;
-} else {
-typingText.textContent = currentPhrase.substring(0, charIndex + 1);
-charIndex++;
-}
-if (!isDeleting && charIndex === currentPhrase.length) {
-isEnd = true;
-setTimeout(() => {
-isDeleting = true;
-}, 1500);
-} else if (isDeleting && charIndex === 0) {
-isDeleting = false;
-phraseIndex = (phraseIndex + 1) % phrases.length;
-}
-const speed = isDeleting ? 100 : isEnd ? 100 : 150;
-setTimeout(type, speed);
-}
-setTimeout(type, 1000);
-// Add glow effect on hover to profile image
-const profileImg = document.querySelector('img.floating');
-profileImg.addEventListener('mouseenter', () => {
-profileImg.classList.add('glow');
-});
-profileImg.addEventListener('mouseleave', () => {
-profileImg.classList.remove('glow');
-});
+  // Dark Mode Toggle
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const html = document.documentElement;
+  const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const savedMode = localStorage.getItem('darkMode');
+  if (savedMode === 'dark' || (!savedMode && userPrefersDark)) {
+    html.classList.add('dark');
+  }
+  darkModeToggle.addEventListener('click', () => {
+    html.classList.toggle('dark');
+    localStorage.setItem('darkMode', html.classList.contains('dark') ? 'dark' : 'light');
+  });
+
+  // Mobile Menu Toggle
+  const mobileMenuButton = document.getElementById('mobileMenuButton');
+  const mobileMenu = document.getElementById('mobileMenu');
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Typing animation
+  const typingText = document.getElementById('typing-text');
+  const phrases = ["Pengembang Web", "Pecinta Anime", "Desainer UI/UX", "Pemecah Masalah"];
+  let phraseIndex = 0, charIndex = 0, isDeleting = false, isEnd = false;
+  function type() {
+    const currentPhrase = phrases[phraseIndex];
+    if (isDeleting) {
+      typingText.textContent = currentPhrase.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      typingText.textContent = currentPhrase.substring(0, charIndex + 1);
+      charIndex++;
+    }
+    if (!isDeleting && charIndex === currentPhrase.length) {
+      isEnd = true;
+      setTimeout(() => { isDeleting = true; }, 1500);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      phraseIndex = (phraseIndex + 1) % phrases.length;
+    }
+    const speed = isDeleting ? 100 : isEnd ? 100 : 150;
+    setTimeout(type, speed);
+  }
+  setTimeout(type, 1000);
+
+  // Add glow effect on hover to profile image
+  const profileImg = document.querySelector('img.floating');
+  profileImg.addEventListener('mouseenter', () => { profileImg.classList.add('glow'); });
+  profileImg.addEventListener('mouseleave', () => { profileImg.classList.remove('glow'); });
+
+  // Disable right-click for all images
+  document.addEventListener('contextmenu', function(e) {
+    if (e.target.tagName === 'IMG') {
+      e.preventDefault();
+    }
+  });
 </script>
 </body>
 </html>

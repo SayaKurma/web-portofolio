@@ -287,6 +287,13 @@
 
         // Load article when page loads
         window.addEventListener('DOMContentLoaded', loadArticle);
+
+// Disable klik kanan khusus gambar
+document.addEventListener('contextmenu', function(e) {
+  if (e.target.tagName === 'IMG') {
+    e.preventDefault();
+  }
+});
     </script>
 </body>
 </html>
